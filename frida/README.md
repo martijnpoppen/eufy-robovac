@@ -43,10 +43,14 @@ pip install
 frida -U --no-pause -l debug.js -f com.eufylife.smarthome
 ```
 
+5. Open a extra terminal tab
+```bash
+# Use fridump to dump all frida memory
+cd fridump
 
 python fridump.py  -U -s com.eufylife.smarthome
 
 cd dump
 
 strings * | grep localKey 
-
+```
