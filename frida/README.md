@@ -1,7 +1,4 @@
-# Frida Debugging
-
-## Getting started
-I've used _Frida_ to _disable ssl pinning_ and log some requests in the console. To checkout _Frida_ visit [https://github.com/frida/frida](https://github.com/frida/frida). And here the tutorial I've used to get familiar with it: [https://book.hacktricks.xyz/mobile-apps-pentesting/android-app-pentesting/frida-tutorial](https://book.hacktricks.xyz/mobile-apps-pentesting/android-app-pentesting/frida-tutorial)
+# Frida Debugging for Eufy Home
 
 
 ## Step by Step
