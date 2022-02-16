@@ -6,7 +6,7 @@ I've used _Frida_ to _disable ssl pinning_ and log some requests in the console.
 
 ## Step by Step
 
-1. Download and install the NOX-Player as an Android simulator. Download: [https://www.bignox.com/](https://www.bignox.com/)
+1. Download and install the GenyMotion
 2. Setup frida server
 ```bash
 # Connect to NOX Player via adb
@@ -26,10 +26,11 @@ adb shell chmod 777 /data/local/tmp/frida-server
 adb shell /data/local/tmp/frida-server &
 ```
 
-3. Install the _Eufy Security App_ on the NOX-Player
+3. Install the _Eufy Home App_ on the NOX-Player
 ```bash
-# Find and download the latest apk and install it via adb
-adb install eufy-security.apk
+# Find and download the latest apk and install it via adb 
+# https://www.dropbox.com/s/bcwy6iqchydgexc/EufyHome_2.4.0_vevs.apk.zip?dl=0
+adb install eufy-home.apk
 ```
 
 4. Execute the frida script
@@ -47,5 +48,5 @@ python fridump.py  -U -s com.eufylife.smarthome
 
 cd dump
 
-strings * | grep bf38a6b834151731579id9 
-(find in API)
+strings * | grep localKey 
+
