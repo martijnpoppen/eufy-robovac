@@ -29,7 +29,7 @@ if(process.argv.length !== 6) {
 			await r.getStatuses();
 			r.formatStatus();
 			console.log("Demo: startCleaning");
-			await r.startCleaning();
+			await r.setWorkMode('Nosweep');
 			await sleep(10000);
 			console.log("Demo: pause");
 			await r.pause();

@@ -3,6 +3,8 @@ import TuyAPI from 'tuyapi';
 export enum CleanSpeed {
     NO_SUCTION = 'No_suction',
     STANDARD = 'Standard',
+    QUIET = 'Quiet',
+    TURBO = 'Turbo',
     BOOST_IQ = 'Boost_IQ',
     MAX = 'Max'
 }
@@ -45,6 +47,8 @@ export enum WorkMode {
     AUTO = 'auto',
     NO_SWEEP = 'Nosweep',
     SMALL_ROOM = 'SmallRoom',
+    ROOM = 'room',
+    ZONE = 'zone',
     EDGE = 'Edge',
     SPOT = 'Spot'
 }
