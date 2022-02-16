@@ -9,20 +9,20 @@ I've used _Frida_ to _disable ssl pinning_ and log some requests in the console.
 1. Download and install the GenyMotion
 2. Setup frida server
 ```bash
-# Connect to NOX Player via adb
+# Connect to GenyMotion via adb
 adb connect 127.0.0.1:62001
 
-# Download frida server for the NOX Player architecture
+# Download frida server for the GenyMotion architecture
 curl -L https://github.com/frida/frida/releases/download/14.2.12/frida-server-14.2.12-android-x86.xz -o frida-server.xz
 
-# Copy the downloaded frida server to the NOX Player
+# Copy the downloaded frida server to the GenyMotion
 adb root
 adb push frida-server /data/local/tmp/frida-server
 
 # Assure the frida server is executable
 adb shell chmod 777 /data/local/tmp/frida-server
 
-# Start the frida server on the NOX Player
+# Start the frida server on the GenyMotion
 adb shell /data/local/tmp/frida-server &
 ```
 
