@@ -45,9 +45,12 @@ frida -U --no-pause -l debug.js -f com.eufylife.smarthome
 # Use fridump to dump all frida memory
 cd fridump
 
-python fridump.py  -U -s com.eufylife.smarthome
+rm -rf dump
+
+python fridump.py -U -s EufyHome
 
 cd dump
 
 strings * | grep localKey 
+
 ```
