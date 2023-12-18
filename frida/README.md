@@ -15,7 +15,7 @@ curl -L https://github.com/frida/frida/releases/download/14.2.12/frida-server-14
 # Copy the downloaded frida server to the GenyMotion
 adb root
 adb push frida-server /data/local/tmp/frida-server
-
+adb pull /data/local/tmp/frida-server ./frida-server 
 # Assure the frida server is executable
 adb shell chmod 777 /data/local/tmp/frida-server
 
@@ -37,7 +37,7 @@ pip install frida-tools frida
 pip install 
 
 # Start debugging
-frida -U --no-pause -l debug.js -f com.eufylife.smarthome
+frida -U -l debug.js -f com.eufylife.smarthome
 ```
 
 5. Open a extra terminal tab
@@ -54,3 +54,4 @@ cd dump
 strings * | grep localKey 
 
 ```
+
