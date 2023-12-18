@@ -91,18 +91,31 @@ export class RoboVac {
     maxStatusUpdateAge: number = 1000 * (1 * 30); //30 Seconds
     timeoutDuration: number;
 
-    constructor(config: { deviceId: string, localKey: string, ip: string, port: 6668 }, debugLog: boolean = false, timeoutDuration = 2) {
+    constructor(config: { deviceId: string, localKey: string, ip: string, port: 6668, newAPI: boolean }, debugLog: boolean = false, timeoutDuration = 2) {
         this.debugLog = debugLog;
         if (!config.deviceId) {
             throw new Error('You must pass through deviceId');
         }
+
+        if (config.newAPI) {
+            this.PLAY_PAUSE = '151';
+            this.DIRECTION = '155';
+            this.WORK_MODE = '152';
+            this.WORK_STATUS = '153';
+            this.GO_HOME = '173';
+            this.CLEAN_SPEED = '158';
+            this.FIND_ROBOT = '160';
+            this.BATTERY_LEVEL = '163';
+            this.ERROR_CODE = '177';
+        }
+
         this.api = new TuyAPI(
             {
                 id: config.deviceId,
                 key: config.localKey,
                 ip: config.ip,
                 port: config.port,
-                version: '3.3',
+                version: config.newAPI ? '3.3' : '3.3',
                 issueRefreshOnConnect: true
             }
         );
@@ -268,6 +281,14 @@ export class RoboVac {
         await this.doWork(async () => {
             await this.set({
                 [this.GO_HOME]: true
+            })
+        });
+    }
+
+    async setDirection(direction: Direction) {
+        await this.doWork(async () => {
+            await this.set({
+                [this.DIRECTION]: direction
             })
         });
     }
